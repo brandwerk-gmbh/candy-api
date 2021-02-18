@@ -33,7 +33,8 @@ class ApiServiceProvider extends ServiceProvider
         $this->mapBindings();
         $this->registerMiddleware();
         $this->mapCommands();
-        $this->loadMigrations();
+        // Deactivated because of Tenency
+        //$this->loadMigrations();
         Gate::before(function ($user) {
             return $user->hasRole('admin') ? true : null;
         });
